@@ -12,8 +12,8 @@ class MainActivity : AppCompatActivity() {
 
         val fragmentAdapter = FragmentPagerAdapter(supportFragmentManager)
 
-        fragmentAdapter.addFragment(BasicFragment() , "Android")
-        fragmentAdapter.addFragment(BasicFragment() , "Kotlin")
+        fragmentAdapter.addFragment(BasicFragment() , "散标")
+        fragmentAdapter.addFragment(BasicFragment() , "供应链")
 
         vVpTab.adapter = fragmentAdapter
 

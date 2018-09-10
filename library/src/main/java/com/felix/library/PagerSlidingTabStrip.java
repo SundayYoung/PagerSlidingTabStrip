@@ -70,6 +70,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
     private int dividerPadding = 12;
     private int tabPadding = 20;
     private int dividerWidth = 1;
+    private int marginBottom = 0;
 
     private int tabTextSize = 14;
     private int tabTextColor = 0xFF666666;
@@ -111,6 +112,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         dividerPadding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dividerPadding, dm);
         tabPadding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, tabPadding, dm);
         dividerWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dividerWidth, dm);
+        marginBottom = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, marginBottom, dm);
 
         TypedArray a = context.obtainStyledAttributes(attrs, ATTRS);
 
@@ -138,6 +140,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
         selectedTabTextColor = a.getColor(R.styleable.PagerSlidingTabStrip_pstsTextSelectedColor, selectedTabTextColor);
         tabSelectedBold = a.getBoolean(R.styleable.PagerSlidingTabStrip_pstsTextSelectedBold, tabSelectedBold);
+        marginBottom = a.getDimensionPixelSize(R.styleable.PagerSlidingTabStrip_pstsMarginBottom, marginBottom);
 
         a.recycle();
 
@@ -324,11 +327,11 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
         if (maxIndicatorLineWidth != 0 && lineRight - lineLeft > maxIndicatorLineWidth) {
             //设置底部横线与文字宽度一致
-            canvas.drawRect(lineLeft + (lineRight - lineLeft - maxIndicatorLineWidth) / 2, height - indicatorHeight, lineRight - (lineRight - lineLeft - maxIndicatorLineWidth) / 2, height, rectPaint);
+            canvas.drawRect(lineLeft + (lineRight - lineLeft - maxIndicatorLineWidth) / 2, height - indicatorHeight - marginBottom, lineRight - (lineRight - lineLeft - maxIndicatorLineWidth) / 2, height - marginBottom, rectPaint);
 
         } else {
             //默认设置，底部横线填满宽
-            canvas.drawRect(lineLeft, height - indicatorHeight, lineRight, height, rectPaint);
+            canvas.drawRect(lineLeft, height - indicatorHeight - marginBottom, lineRight, height - marginBottom, rectPaint);
         }
 
         // draw divider

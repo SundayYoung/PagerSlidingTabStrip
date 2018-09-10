@@ -10,7 +10,7 @@
     <com.felix.library.PagerSlidingTabStrip
         android:id="@+id/vTlTab"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:background="@color/white"
         app:pstsIndicatorColor="@color/colorPrimary"
         app:pstsIndicatorHeight="2dp"
@@ -18,8 +18,9 @@
         app:pstsTextSelectedBold="true"
         app:pstsTextSelectedColor="@color/colorPrimary"
         app:pstsTextSize="15sp"
-        app:pstsUnderlineHeight="1dp"
-        app:pstsMaxIndicatorLineWidth="70dp"/>
+        app:pstsUnderlineHeight="0dp"
+        app:pstsMaxIndicatorLineWidth="18dp"
+        app:pstsMarginBottom="5dp"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/vVpTab"

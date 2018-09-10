@@ -20,6 +20,7 @@
         <attr name="pstsTextSelectedColor" format="color" />
         <attr name="pstsTextSelectedBold" format="boolean" />
         <attr name="pstsMaxIndicatorLineWidth" format="dimension" />
+        <attr name="pstsMarginBottom" format="dimension" />
 
     </declare-styleable>
 
