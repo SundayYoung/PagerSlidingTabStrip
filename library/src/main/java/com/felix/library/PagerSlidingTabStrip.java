@@ -62,6 +62,7 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
     private boolean shouldExpand = false;
     private boolean textAllCaps = true;
+    private boolean isCenterShow = false;
 
     private int scrollOffset = 52;
     private int indicatorHeight = 8;
@@ -98,11 +99,6 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
 
         setFillViewport(true);
         setWillNotDraw(false);
-
-        tabsContainer = new LinearLayout(context);
-        tabsContainer.setOrientation(LinearLayout.HORIZONTAL);
-        tabsContainer.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
-        addView(tabsContainer);
 
         DisplayMetrics dm = getResources().getDisplayMetrics();
 
@@ -141,8 +137,17 @@ public class PagerSlidingTabStrip extends HorizontalScrollView {
         selectedTabTextColor = a.getColor(R.styleable.PagerSlidingTabStrip_pstsTextSelectedColor, selectedTabTextColor);
         tabSelectedBold = a.getBoolean(R.styleable.PagerSlidingTabStrip_pstsTextSelectedBold, tabSelectedBold);
         marginBottom = a.getDimensionPixelSize(R.styleable.PagerSlidingTabStrip_pstsMarginBottom, marginBottom);
+        isCenterShow = a.getBoolean(R.styleable.PagerSlidingTabStrip_pstsIsCenterShow, isCenterShow);
 
         a.recycle();
+
+        tabsContainer = new LinearLayout(context);
+        tabsContainer.setOrientation(LinearLayout.HORIZONTAL);
+        tabsContainer.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+        if (isCenterShow) {
+            tabsContainer.setGravity(Gravity.CENTER);
+        }
+        addView(tabsContainer);
 
         rectPaint = new Paint();
         rectPaint.setAntiAlias(true);

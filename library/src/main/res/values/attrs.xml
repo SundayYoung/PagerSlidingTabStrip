@@ -21,6 +21,7 @@
         <attr name="pstsTextSelectedBold" format="boolean" />
         <attr name="pstsMaxIndicatorLineWidth" format="dimension" />
         <attr name="pstsMarginBottom" format="dimension" />
+        <attr name="pstsIsCenterShow" format="boolean" />
 
     </declare-styleable>
 
